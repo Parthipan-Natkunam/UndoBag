@@ -4,7 +4,7 @@ A JavaScript micro-library for easy implementation of undo and redo feature.
 ### Steps to Include UndoBag:
 
 #### For Browser-based Projects:
-For browser based projects, clude the minified js file in the **dist** folder of the repo into your markup.
+For browser based projects, include the minified js file in the **dist** folder of the repo into your markup.
 ```
 <script type="text/javascript" src="dist/undoBag.min.js"></script>
 ```
