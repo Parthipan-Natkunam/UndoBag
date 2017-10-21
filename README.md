@@ -12,13 +12,27 @@ For browser based projects, include the minified js file in the **dist** folder 
 The full non-minified js source is available in the **src** folder.
 
 #### For nodeJS Projects:
-will be updated shortly.
+- Install undobag package using npm
+```
+npm install undobag
+```
+- Require it in your file
+```
+var undoBag = require('undobag');
+```
 
 ### UndoBag Usage:
 Undobag can be initialized as follows:
+
+##### Browser-based:
 ```
-new window.UndoBag(options); //for browser-based solutions
+new window.UndoBag(options);
 ```
+##### NodeJS based:
+```
+var anyVariableName = new undoBag(options);
+```
+
 where the **options** is an **optional** configuration object of the form:
 ```
 {
