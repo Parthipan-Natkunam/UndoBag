@@ -16,7 +16,7 @@ will be updated shortly.
 ### UndoBag Usage:
 Undobag can be initialized as follows:
 ```
-new window.UndoBag(options);
+new window.UndoBag(options); //for browser-based solutions
 ```
 where the **options** is an **optional** configuration object of the form:
 ```
