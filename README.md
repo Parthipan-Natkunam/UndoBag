@@ -36,7 +36,7 @@ where the **options** is an **optional** configuration object of the form:
 | canRedo | - | Returns whether redo is possible at that particular point| Boolean |
 | undo | - | Returns the next data/obj DOWN the line in the stack | Depens on stack content |
 | redo | - | Returns the next data/obj UP the line in the stack | Depens on stack content |
-| seek | position | Returns the data/obj at supplied position in the stack (1 based positioning, i.e, 1 returns obj at index 0) | Depens on stack content |              
+| seek | position | Returns the data/obj at supplied position in the stack (1 based positioning, i.e, position 1 returns obj at index 0) | Depens on stack content |              
 | flushStack | - | Clears all the contents of the stack | void |
 | log | - | logs an object in the console that contains stack related data | void |
 
