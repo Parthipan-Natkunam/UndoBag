@@ -27,6 +27,19 @@ where the **options** is an **optional** configuration object of the form:
 }
 ```
 
+### UndoBag APIs:
+
+| API | Parameters | Description | Return Type |
+| :--:| :--------: | :---------- | :---------: |
+| recordChange | item | Pushes the passes data/object to the stack | void |
+| canUndo | - | Returns whether undo is possible at that particular point | Boolean |
+| canRedo | - | Returns whether redodo is possible at that particular point| Boolean |
+| undo | - | Returns the next data/obj DOWN the line in the stack | Depens on stack content |
+| redo | - | Returns the next data/obj UP the line in the stack | Depens on stack content |
+| seek | position | Returns the data/obj at supplied position in the stack (1 based positioning, i.e, 1 returns obj at index 0) | Depens on stack content |              
+| flushStack | - | Clears all the contents of the stack | void |
+| log | - | logs an object in the console that contains stack related data | void |
+
 ### Steps to Build from Source:
 - Clone this repo.
 ```
