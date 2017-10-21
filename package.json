@@ -1,6 +1,6 @@
 {
   "name": "undobag",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A JavaScript micro-library for easy implementation of undo and redo feature.",
   "main": "src/undoBag.js",
   "scripts": {
