@@ -3,7 +3,8 @@ module.exports= function(grunt){
 		uglify:{
 	      options: {
 	        mangle:{
-	          toplevel: true
+	          toplevel: true,
+            reserved: ['UndoBag']
 	        },
 	        compress: true,
 	        beautify: false
