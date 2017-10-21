@@ -31,7 +31,7 @@ where the **options** is an **optional** configuration object of the form:
 
 | API | Parameters | Description | Return Type |
 | :--:| :--------: | :---------- | :---------: |
-| recordChange | item | Pushes the passes data/object to the stack | void |
+| recordChange | item | Pushes the passed data/object to the stack | void |
 | canUndo | - | Returns whether undo is possible at that particular point | Boolean |
 | canRedo | - | Returns whether redodo is possible at that particular point| Boolean |
 | undo | - | Returns the next data/obj DOWN the line in the stack | Depens on stack content |
