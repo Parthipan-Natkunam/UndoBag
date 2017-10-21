@@ -1,18 +1,13 @@
-var UndoBag = {};
 (function(){
-	var context;
+	'use strict';
 	var stack=[];
-	var stackLimit = 10;
+	var stackLimit;
 	var topIndex = 0;
-	var bottomIndex = 0;
 	var currentIndex = 0;
-	var isUndoable = canUndo;
-	var isRedoable = canRedo;
-	function canUndo(){
-		return currentIndex !== bottomIndex;
-	}
-	function canRedo(){
-		return currentIndex !== topIndex;
+	var isDevEnv = false;
+	function config(opts){
+		stackLimit = opts && opts.length ? opts.stackLength : 10;
+		isDevEnv = opts && opts.isDev;
 	}
 	function performPush(item){
 		if(stack.length < stackLimit){
@@ -24,61 +19,43 @@ var UndoBag = {};
 			stack.push(item);
 		}
 	}
-	function performUndo(){
-		if(isUndoable()){
-			currentIndex -=1;
-			return stack[currentIndex];
-		}
+	function performLogging(){
+		var logObj={
+			stack: stack,
+			limit: stackLimit,
+			currentLength: stack.length,
+			top: topIndex,
+			currentPointer: currentIndex
+		};
+		console.log(logObj);
 	}
-	function performRedo(){
-		if(isRedoable()){
-			currentIndex +=1;
-			return stack[currentIndex];
-		}
-	}
-	function performClear(){
+	var UndoBag = function(opts){
+		opts && config(opts);
+	};
+	UndoBag.prototype.recordChange= function(item){
+		performPush(item);
+	};
+	UndoBag.prototype.flushStack = function(){
 		stack.length = topIndex = currentIndex =  0;
 	}
-	function performLogging(){
-		console.log('UndoBag Stack Logs');
-		console.log('------------------');
-		console.log(stack);
-		console.log('topIndex: '+ topIndex);
-		console.log('currentIndex: '+ currentIndex);
-		console.log('bottomIndex: '+ bottomIndex);
-		console.log('stackLimit: '+ stackLimit);
-		console.log('current stack length: '+ stack.length);
-		console.log('------------------');
+	UndoBag.prototype.canUndo = function(){
+		return currentIndex > 0;
 	}
-	this.init = function(stackSize){
-		if(context){return context;}
-		if(stackSize){stackLimit = stackSize;}
-		context = this;
+	UndoBag.prototype.canRedo = function(){
+		return currentIndex < stack.length;
 	}
-	this.push = function(item){
-		performPush(item);
+	UndoBag.prototype.undo = function(){
+		if(this.canUndo()) return stack[--currentIndex];
 	}
-	this.undo = function(){
-		performUndo();
+	UndoBag.prototype.redo = function(){
+		if(this.canRedo()) return stack[++currentIndex];
 	}
-	this.redo= function(){
-		performRedo();
+	UndoBag.prototype.seek = function(position){
+		if(!isNaN(position)) return stack[position-1];
 	}
-	this.isUndoPossible = function(){
-		isUndoable();
+	UndoBag.prototype.log= function(){
+		isDevEnv && performLogging();
 	}
-	this.isRedoPossible = function(){
-		isRedoable();
-	}
-	this.reset = function(){
-		performClear();
-	}
-	this.log= function(){
-		performLogging();
-	}
-	this.seek = function(position){
-		if(!isNaN(position)){
-			return stack[position-1];
-		}
-	}
-}).call(UndoBag);
+	if(typeof module !== 'undefined') module.exports = UndoBag;
+	if(typeof window !== 'undefined') window.UndoBag = UndoBag;
+})();

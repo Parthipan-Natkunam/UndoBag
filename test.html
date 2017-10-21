@@ -4,21 +4,21 @@
 	<meta charset="UTF-8">
 	<title>UndoBag Test</title>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="src/undoBag.js"></script>
+	<script type="text/javascript" src="dist/undoBag.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			new UndoBag.init();
+			var undoBag = new window.UndoBag({isDev:true});
 			$('#push').click(function(){
-				UndoBag.push($('#box').val());
+				undoBag.recordChange($('#box').val());
 			});
 			$('#undo').click(function(){
-				UndoBag.undo();
+				console.log(undoBag.undo());
 			});	
 			$('#redo').click(function(){
-				UndoBag.redo();
+				console.log(undoBag.redo());
 			});
 			$('#log').click(function(){
-				UndoBag.log();
+				undoBag.log();
 			});
 		});
 	</script>

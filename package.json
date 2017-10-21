@@ -1,17 +1,21 @@
 {
   "name": "UndoBag",
   "version": "1.0.0",
-  "description": "A JavaScript micro-library for easy implementation of undo and redo features.",
-  "main": "index.js",
+  "description": "A JavaScript micro-library for easy implementation of undo and redo feature.",
+  "main": "src/undoBag.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Parthipan-Natkunam/UndoBag.git"
+    "url": "https://github.com/Parthipan-Natkunam/UndoBag.git"
   },
-  "keywords": [],
-  "author": "Parthipan Natkunam <devparthikunam@gmail.com> (http://parthipan.co.in/)",
+  "keywords": [
+    "undo",
+    "redo",
+    "stack"
+  ],
+  "author": "Parthipan Natkunam",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Parthipan-Natkunam/UndoBag/issues"
