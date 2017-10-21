@@ -1,4 +1,4 @@
-![Alt text](https://github.com/Parthipan-Natkunam/UndoBag/blob/master/logo.svg "UndoBag Logo")
+![Alt text](https://github.com/Parthipan-Natkunam/UndoBag/blob/master/logo.svg?raw=true)
 
 A JavaScript micro-library for easy implementation of undo and redo feature.
 
