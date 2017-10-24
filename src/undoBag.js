@@ -6,7 +6,7 @@
 	var currentIndex = 0;
 	var isDevEnv = false;
 	function config(opts){
-		stackLimit = opts && opts.length ? opts.stackLength : 10;
+		stackLimit = opts && opts.length ? opts.length : 10;
 		isDevEnv = opts && opts.isDev;
 	}
 	function performPush(item){
