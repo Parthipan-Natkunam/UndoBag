@@ -1,6 +1,8 @@
 # UndoBag
 A JavaScript micro-library for easy implementation of undo and redo feature.
 
+[![npm version](https://badge.fury.io/js/undobag.svg)](https://badge.fury.io/js/undobag)
+
 ### Steps to Include UndoBag:
 
 #### For Browser-based Projects:
