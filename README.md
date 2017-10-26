@@ -34,14 +34,14 @@ new window.UndoBag(options);
 var anyVariableName = new undoBag(options);
 ```
 
-where the **options** is an **optional** configuration object of the form:
-```
-{
-    length: 20, // configures stack length (can be any positive number) Default value: 10
-    isDev: true // Indicates whether the ENV is development (enables console logging of stack related data) 
-                //Default value: false
-}
-```
+where the **options** is an **optional** configuration object.
+
+##### Config Params:
+
+| Key | Value Data Type | Description | Default Value |
+| :--:| :-------------: | :---------- | :-----------: |
+| length | Number | configures stack length (can be any positive number) | 10|
+| isDev | Boolean | Indicates whether the ENV is development (enables console logging of stack related data) | false|
 
 ### UndoBag APIs:
 
